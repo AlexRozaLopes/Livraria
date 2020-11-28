@@ -28,3 +28,19 @@ CREATE TABLE comentario(
         FOREIGN KEY(ID_LIVRO)
         REFERENCES livro(ID)
 );
+-- criação de sequence
+select * from livro;
+select * from comentario;
+create sequence livro_seq;
+create sequence comentario_seq;
+create sequence usuario_seq;
+
+select currval('livro_seq');
+select currval('comentario_seq');
+select currval('usuario_seq');
+-- alterar o valor inicial da sequencia
+select setval('livro_seq', 3, true);
+select setval('comentario_seq', 1, true);
+
+insert into livro (id, titulo, autor) values (nextval('comentario_seq'), 'Teste titulo', 'Teste autor');
+insert into comentario (id, avaliacao, descricao, id_livro) values (nextval('comentario_seq'), 4, 'Bom livro', 1);
